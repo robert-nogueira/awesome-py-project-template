@@ -1,15 +1,18 @@
 import json
 import os
+import shutil
 import subprocess
 
 
 def get_git_config(key: str) -> str | None:
+    git_cmd = shutil.which('git')
+    if not git_cmd:
+        return None  # Git não encontrado
+
     try:
-        return (
-            subprocess.check_output(['git', 'config', '--get', key])
-            .strip()
-            .decode('utf-8')
-        )
+        return subprocess.check_output(
+            [git_cmd, 'config', '--get', key], text=True
+        ).strip()  # nosec
     except subprocess.CalledProcessError:
         return None
 
