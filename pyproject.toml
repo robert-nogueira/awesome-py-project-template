@@ -32,7 +32,7 @@ post_test = 'coverage html'
 security = 'poetry run safety scan && poetry run bandit -c pyproject.toml -r .'
 
 [tool.ruff]
-extend-exclude = ["[{][{] cookiecutter.__project_slug [}][}]"]
+extend-exclude = ["[{][{] cookiecutter.project_name [}][}]"]
 force-exclude = true
 line-length = 79
 exclude = ['env', 'alembic', 'templates']

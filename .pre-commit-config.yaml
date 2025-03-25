@@ -3,15 +3,15 @@ repos:
   rev: v5.0.0
   hooks:
   - id: check-yaml
-    exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+    exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
   - id: end-of-file-fixer
-    exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+    exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
   - id: trailing-whitespace
-    exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+    exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
   - id: mixed-line-ending
-    exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+    exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
   - id: double-quote-string-fixer
-    exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+    exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.11.2
@@ -23,8 +23,8 @@ repos:
       exclude: |
         ^templates/
         ^hooks/
-        ^{{ cookiecutter.__project_slug }}/pyproject.toml$
-        ^{{ cookiecutter.__project_slug }}/.pre-commit-config.yaml$
+        ^{{ cookiecutter.project_name }}/pyproject.toml$
+        ^{{ cookiecutter.project_name }}/.pre-commit-config.yaml$
     - id: ruff-format
       language: python
       files: \.py$
@@ -32,15 +32,15 @@ repos:
       exclude: |
         ^templates/
         ^hooks/
-        ^{{ cookiecutter.__project_slug }}/pyproject.toml$
-        ^{{ cookiecutter.__project_slug }}/.pre-commit-config.yaml$
+        ^{{ cookiecutter.project_name }}/pyproject.toml$
+        ^{{ cookiecutter.project_name }}/.pre-commit-config.yaml$
 
 - repo: https://github.com/pycqa/isort
   rev: 6.0.1
   hooks:
     - id: isort
       name: isort (python)
-      exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+      exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
 
 - repo: local
   hooks:
@@ -49,20 +49,20 @@ repos:
       entry: bash -c 'poetry run pyright "$@"'
       language: system  # Usando o sistema diretamente
       files: \.py$
-      exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+      exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
 
 - repo: https://github.com/commitizen-tools/commitizen
   rev: v4.4.1
   hooks:
     - id: commitizen
       additional_dependencies: [cz-conventional-gitmoji]
-      exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+      exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
 
 - repo: https://github.com/ljnsn/cz-conventional-gitmoji
   rev: v0.6.1
   hooks:
     - id: conventional-gitmoji
-      exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+      exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
 
 - repo: https://github.com/PyCQA/bandit
   rev: 1.8.3
@@ -70,10 +70,10 @@ repos:
   - id: bandit
     args: ["-c", "pyproject.toml"]
     additional_dependencies: ["bandit[toml]"]
-    exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+    exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
 
 - repo: https://github.com/jendrikseipp/vulture
   rev: v2.14
   hooks:
     - id: vulture
-      exclude: ^(templates|hooks|{{ cookiecutter.__project_slug }}/\.pre-commit-config.yaml|{{ cookiecutter.__project_slug }}/pyproject.toml)
+      exclude: ^(templates|hooks|{{ cookiecutter.project_name }}/\.pre-commit-config.yaml|{{ cookiecutter.project_name }}/pyproject.toml)
