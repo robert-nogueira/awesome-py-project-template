@@ -1,0 +1,17 @@
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+target-version = ['py310']
+exclude = '''
+(
+    ^env/
+    | ^alembic/
+    | ^migrations/
+    | ^tests/
+)
+'''
+check = false
+fast = true
+color = true
+unstable = false
+diff = true

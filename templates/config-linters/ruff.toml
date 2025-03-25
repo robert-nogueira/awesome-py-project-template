@@ -1,0 +1,5 @@
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "ANN", "ASYNC", "C4", "RET", "ARG"]
+ignore = ["Q000", "T201", "ANN401", "ANN002", "ANN003", "N818"]
+per-file-ignores = { "__init__.py" = ["F401"] }
+exclude = ["*.pyc", "*.pyo", "migrations"]

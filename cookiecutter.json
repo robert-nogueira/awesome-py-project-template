@@ -1,0 +1,33 @@
+{
+  "project_name": "new project",
+  "__project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('-', '_') }}",
+  "description": "none",
+  "author": null,
+  "email": null,
+      "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"],
+  "linter": [
+    "ruff",
+    "flake8",
+    "pylint"
+  ],
+  "formatter": [
+    "ruff",
+    "black"
+  ],
+  "type_checker": [
+    "pyright",
+    "mypy"
+  ],
+  "use_isort": true,
+  "init_git": true,
+  "cz_conventional_gitmoji": true,
+  "__prompts__": {
+    "project_name": "project name",
+    "linter": "Which linter do you want to use?",
+    "formatter": "Which code formatter do you want to use?",
+    "type_checker": "Which type checker do you want to use?",
+    "use_isort": "Do you want to use isort for import sorting?",
+    "init_git": "Initialize a git repository?",
+    "cz_conventional_gitmoji": "Do you want to use Commitizen with conventional commits and Gitmoji?"
+  }
+}

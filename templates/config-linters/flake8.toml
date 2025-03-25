@@ -1,0 +1,10 @@
+[tool.flake8]
+max-line-length = 79
+exclude = ['env', 'alembic']
+src = ["src"]
+select = ["E", "F", "W", "I", "N", "UP", "ANN", "ASYNC", "C4", "RET", "ARG"]
+ignore = ["Q000", "T201", "ANN401", "ANN002", "ANN003", "N818"]
+quote-style = "single"
+
+[tool.flake8.extend-per-file-ignores]
+'__init__.py' = ['F401']

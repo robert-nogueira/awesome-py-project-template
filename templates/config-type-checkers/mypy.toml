@@ -1,0 +1,18 @@
+[tool.mypy]
+files = "src"
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+strict = true
+namespace_packages = false
+follow_imports = "silent"
+cache_dir = ".cache/.mypy_cache"
+exclude = '''
+(
+    ^env/
+    | ^alembic/
+    | ^tests/
+)
+'''
+# plugins = ["pydantic.mypy"]  # Uncomment this line to enable the Pydantic plugin for type checking with Mypy

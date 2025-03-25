@@ -1,0 +1,102 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.3.0
+  hooks:
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+  - id: mixed-line-ending
+  - id: double-quote-string-fixer
+
+{%- if cookiecutter.linter == "ruff" %}
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.11.2
+  hooks:
+  - id: ruff
+{%- endif %}
+
+{%- if cookiecutter.formatter == "ruff" %}
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.11.2
+  hooks:
+  - id: ruff-format
+{%- endif %}
+
+{%- if cookiecutter.linter == "flake8" %}
+- repo: https://github.com/pre-commit/mirrors-flake8
+  rev: 7.1.2
+  hooks:
+  - id: flake8
+{%- endif %}
+
+{%- if cookiecutter.linter == "pylint" %}
+- repo: local
+  hooks:
+    - id: pylint
+      name: pylint
+      entry: pylint
+      language: system
+      types: [python]
+      require_serial: true
+      args:
+        [
+          "-rn", # Only display messages
+          "-sn", # Don't display the score
+        ]
+{%- endif %}
+
+{%- if cookiecutter.formatter == "black" %}
+- repo: https://github.com/psf/black
+  rev: 22.3.0
+  hooks:
+  - id: black
+{%- endif %}
+
+{%- if cookiecutter.use_isort %}
+- repo: https://github.com/pycqa/isort
+  rev: 6.0.1
+  hooks:
+    - id: isort
+      name: isort (python)
+{%- endif %}
+
+{%- if cookiecutter.type_checker == "mypy" %}
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v0.910
+  hooks:
+  - id: mypy
+{%- endif %}
+
+{%- if cookiecutter.type_checker == "pyright" %}
+- repo: local
+  hooks:
+    - id: pyright
+      name: Run Pyright Type Checker
+      entry: bash -c 'poetry run pyright "$@"'
+      language: system  # Usando o sistema diretamente
+      files: \.py$
+{%- endif %}
+
+{%- if cookiecutter.cz_conventional_gitmoji %}
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: v3.29.0
+  hooks:
+    - id: commitizen
+      additional_dependencies: [cz-conventional-gitmoji]
+- repo: https://github.com/ljnsn/cz-conventional-gitmoji
+  rev: v0.6.1
+  hooks:
+    - id: conventional-gitmoji
+{%- endif %}
+
+- repo: https://github.com/PyCQA/bandit
+  rev: 1.8.3
+  hooks:
+  - id: bandit
+    args: ["-c", "pyproject.toml"]
+    additional_dependencies: ["bandit[toml]"]
+
+- repo: https://github.com/jendrikseipp/vulture
+  rev: v2.14
+  hooks:
+    - id: vulture

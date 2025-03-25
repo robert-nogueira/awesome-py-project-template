@@ -1,0 +1,10 @@
+[tool.pylint]
+max-line-length = 79
+disable = ["C0114", "C0115", "C0116"]
+ignore-patterns = "env|alembic"
+
+[tool.pylint.messages-control]
+enable = [
+    "fatal",
+    "cyclic-import",
+]

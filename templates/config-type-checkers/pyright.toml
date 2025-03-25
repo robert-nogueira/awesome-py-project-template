@@ -1,0 +1,17 @@
+[tool.pyright]
+exclude = [
+    "env",
+    "alembic",
+    "tests"
+]
+ignore = [
+    "**/*.pyi"
+]
+reportMissingTypeStubs = true
+reportMissingImports = true
+reportGeneralTypeIssues = true
+reportUntypedFunctionDecorator = true
+reportUntypedClassDecorator = true
+reportUnnecessaryTypeIgnoreComment = true
+useLibraryCodeForTypes = true
+strict = ['src']
