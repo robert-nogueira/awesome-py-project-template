@@ -13,6 +13,7 @@ repos:
   rev: v0.11.2
   hooks:
   - id: ruff
+    args: [ --config=pyproject.toml ]
 {%- endif %}
 
 {%- if cookiecutter.formatter == "ruff" %}
@@ -20,6 +21,7 @@ repos:
   rev: v0.11.2
   hooks:
   - id: ruff-format
+    args: [ --config=pyproject.toml ]
 {%- endif %}
 
 {%- if cookiecutter.linter == "flake8" %}
