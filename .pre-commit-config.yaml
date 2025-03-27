@@ -19,7 +19,7 @@ repos:
     - id: ruff
       language: python
       files: \.py$
-      args: [ --fix, --config=pyproject.toml ]
+      args: [ --config=pyproject.toml ]
       exclude: |
         ^templates/
         ^hooks/
