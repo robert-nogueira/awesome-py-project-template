@@ -10,7 +10,7 @@ requires-python = ">=3.13, <4.0"
 dependencies = []
 
 [tool.poetry]
-packages = [{include = "projects_template", from = "src"}]
+packages = [{include = "{{ cookiecutter.__project_slug }}", from = "src"}]
 
 [tool.poetry.group.dev.dependencies]
 vulture = "^2.14"
