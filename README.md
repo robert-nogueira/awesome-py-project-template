@@ -60,6 +60,9 @@ You will be prompted to customize your project setup, with options to choose:
 
 The `cookiecutter` template will automatically configure the necessary tools based on your selections.
 
+>>> [!TIP]
+> You can set default values at you [user config file](https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html)
+
 ### 🔧 Post-Generation Script (`post_gen_project.sh`)
 
 After generating the project, **Cookiecutter** will run a post-generation script (`post_gen_project.sh`) that:
