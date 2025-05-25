@@ -60,6 +60,7 @@ fi
 
 echo -e "${YELLOW}Installing pre-commit hooks...${NC}"
 poetry run pre-commit install --install-hooks &> /dev/null
+poetry run pre-commit install --hook-type commit-msg
 echo -e "${YELLOW}Updating pre-commit hooks...${NC}"
 poetry run pre-commit autoupdate &> /dev/null
 echo -e "${GREEN}Pre-commit hooks installed and updated.${NC}"
