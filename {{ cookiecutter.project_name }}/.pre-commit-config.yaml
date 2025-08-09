@@ -102,3 +102,6 @@ repos:
   rev: v2.14
   hooks:
     - id: vulture
+      args: [--min-confidence=100]
+      files: \.py$
+      stages: [pre-commit]
