@@ -1,7 +1,9 @@
 [project]
 name = "{{ cookiecutter.__project_slug }}"
 version = "0.1.0"
-description = "{{ cookiecutter.description }}"
+description = """
+{{ cookiecutter.description | replace('\x1b', '') }}
+"""
 authors = [
     {name = "Robert",email = "99199842+Robert-Nogueira@users.noreply.github.com"}
 ]
