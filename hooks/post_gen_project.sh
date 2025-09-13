@@ -32,20 +32,13 @@ else
     confirm="${confirm:-y}"
 
     if [[ "$confirm" =~ ^[Yy]$ ]]; then
-        echo -e "${YELLOW}Updating outdated dependencies...${NC}"
-        echo "$outdated" | while read -r line; do
-            package=$(echo $line | awk '{print $1}')
-            current_version=$(echo $line | awk '{print $2}')
-            latest_version=$(echo $line | awk '{print $3}')
-
-            echo -e "${YELLOW}Updating package:${NC} $package"
-            poetry run poetry remove "$package" --quiet
-            poetry run poetry add "$package@$latest_version" --quiet
-            echo -e "${GREEN}Package $package updated to version $latest_version.${NC}"
-        done
-        echo -e "${GREEN}All outdated dependencies updated.${NC}"
+	echo -e "${YELLOW}Updating outdated dependencies...${NC}"
+	echo "$outdated" | awk '{printf "%-20s current: %-10s -> latest: %-10s\n", $1, $2, $3}'
+	top_packages=$(echo "$outdated" | awk '{print $1}' | xargs)
+	poetry update $top_packages --quiet
+	echo -e "${GREEN}All outdated dependencies updated.${NC}"
     else
-        echo -e "${YELLOW}Skipped dependency update.${NC}"
+	echo -e "${YELLOW}Skipped dependency update.${NC}"
     fi
 fi
 
