@@ -17,6 +17,7 @@ repos:
   rev: v0.11.2
   hooks:
     - id: ruff
+      pass_filenames: false
       language: python
       files: \.py$
       args: [ --config=pyproject.toml ]
@@ -26,6 +27,7 @@ repos:
         ^{{ cookiecutter.project_name }}/pyproject.toml$
         ^{{ cookiecutter.project_name }}/.pre-commit-config.yaml$
     - id: ruff-format
+      pass_filenames: false
       language: python
       files: \.py$
       args: [ --config=pyproject.toml ]
@@ -45,6 +47,7 @@ repos:
 - repo: local
   hooks:
     - id: pyright
+      pass_filenames: false
       name: Run Pyright Type Checker
       entry: bash -c 'poetry run pyright "$@"'
       language: system  # Usando o sistema diretamente
